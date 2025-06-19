@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sistemadefidelizacion",
+  "private_key_id": "0d4bd6126167658ce5c1f757bf0183d133b4473f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCwg1MOZF2BUnhi\nyP/4lA737+x63pHCP/rAAYTb/aUby6Pd5mHU9q12gpV8CgAdEiuR1cDceH2LgTyR\novHopxiShovc+43i+p++qlgne7tK+xRi661BNsJM4wRCcWk0KU4FEVcvpmMZ8b2q\nh7BMMoBZJ2G44sxyQ08uXwLvvlBM+p/CkCPqhqT0cNGM7EZXaduX7maMlMFEkgd5\na53LTu8S9e9t4qAexE/eXBV3OPpGALBWnQVeoSDeVASPQ1jIsswgW/r53NXR5cKh\nX8FvyQtngj5G3xXW3fnj7MpURK22zY8K3bb28kRv5Zn5bnMZ3p75i2PVUAluCJO/\nnuuYYTsNAgMBAAECggEAKF0XgJqF4V1FBz30ftkIpTzZpG1CApwT0JVoVtAlUfpa\n0hLtO0BfgVKyMUeuJ/ewO+yX6jKpbt3SRnFvBSc00MjwsctaclWicvzMJNdACJDq\n5AYFu/x0KRXesvzxNErfuvvwpoZTcircFuNpdrszq298gsVmQBjRQgbbCozIGxnw\nSV+TTCMpH/8dbXr1Pl7jxwEpxhqveWovoiQa75tjn96ZK64xtIq7Z1nMK9XMlVMP\nCOQxaXpAVGH1Ea9hLbKYS9CVWum6WJgHxDuYqQrbWNjgpkCvyj8cWkJjnvyJJ5Ab\ntNW6w/V4kkmhCyYYrVF4NPLa3+Z0Dk9/68N6LFn2MQKBgQD4WXogQdz7w+lpbJx9\n69UfYYUiwpXoO2dFZeS6JZSpIQe5E825hXf87a2ylacijn2knoFDEvBC1RblfjWA\nzWc25shP84TaGKggKY7ANppPAGyaq35yKXZUPTGUAWA6hqJ+4akrjGESsz9WPWC8\ny35wqLyMM4L9LpEUoIUTcHzAVQKBgQC181VTcgbL1noTVE+zwy8YM329zS6XO+xu\n93ChSd83vKXX86bIiffUHyZCVDvAJDpl9LYs6QoQguAEOnHaUg8NhKeKRSCXIWi+\nWZeTqCN/c1HpwrqRKVzFzUo1P+/rCuhlV24rTQucudGn5h/OE8gkTGZWYFzUADPW\n1VEbGEBn2QKBgGk13tsTi/7MvHGBJbri0eL9eV2EeeVsZQ+tXvzNNvF/oLnzfc/+\njxqDxnZFmAy3uNqom7JCr65gf9axZREv8236zxmv3LRYhcE6WdNsTmrxjxDnXiYX\nEp4VXo+JFa81olmGWBiu2+EENuzeC8FvpB0uHtJ2cCO6OpQ2fKoDmZYRAoGAfzRh\nwPcFHVkS+5SELE8XC7pj/GAIZJ72SxYe3gQBVLxEzdeAEM+0Pc6RNuog49HwKfuN\nqZQ6/xQgfZRGqLWZ5H+LijWN9VrcGcgVGpwARUhgSidju7zJKVi+ur+6gf6cPs2D\nLi6tIaMfmlxee/qEgCwRl+3CuExz8YwtKd4omPECgYB5HYPu+3/iJ98iuM2tZwfN\nXR0bVze2Tw7qsxDJUaRPUHpu7RvbsXkmpQ3JzcQJB/SH285+XTnGo2xil+ufM5AG\nDifJMGu5MZxoUQbs1igNA3bzKswYqZYq0UZvK1Tf00bwyWB3x8EkE1QG9csH5emj\nenjzm4FbFaWBXQ3Z+yOdeg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "barberpass@sistemadefidelizacion.iam.gserviceaccount.com",
+  "client_id": "112659747649944597121",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/barberpass%40sistemadefidelizacion.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
