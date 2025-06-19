@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <title>Barbero - Generador de Códigos</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="contorno">
+            <div class="cabecera">
+                <h1>Generador de Códigos</h1>
+                <p>Sistema de fidelidad - BarberHome</p>
+            </div>
+
+            <div class="formulario-barbero">
+                <div class="boton-registro">
+                    <input type="number" id="puntosInput" placeholder="Puntos a asignar" min="1">
+                    <i class='bx bx-plus-medical'></i>
+                </div>
+                
+                <button class="btn-accion" onclick="generarCodigo()">
+                    <i class='bx bx-qrcode'></i>
+                    Generar Código
+                </button>
+            </div>
+
+            <div class="qr-container" id="qrcode"></div>
+        </div>
+    </div>
+
+    <script>
+        function generarCodigo() {
+            const puntos = document.getElementById('puntosInput').value;
+            if(!puntos || puntos < 1) {
+                alert("Ingresa una cantidad válida de puntos");
+                return;
+            }
+
+            const claveSecreta = 'barberia-secreta';
+            const hash = btoa(`${puntos}${claveSecreta}`);
+            
+            const datos = {
+                puntos: parseInt(puntos),
+                hash: hash,
+                timestamp: new Date().getTime()
+            };
+
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = '';
+            
+            new QRCode(qrContainer, {
+                text: JSON.stringify(datos),
+                width: 200,
+                height: 200,
+                colorDark: "#2a2a2a",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instascan/1.0.0/instascan.min.js"></script>
+    <title>Barbería - Sistema de Puntos</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="contorno">
+            <div class="cabecera">
+                <h1>BarberHome</h1>
+                <p>Sistema de fidelidad</p>
+            </div>
+            
+            <div class="puntos-info">
+                <div class="puntos-totales">
+                    <span>Tus puntos:</span>
+                    <h2 id="puntos-counter">0</h2>
+                </div>
+                <div class="progreso">
+                    <div class="barra-progreso"></div>
+                    <span>Próximo corte gratis en: 150 puntos</span>
+                </div>
+            </div>
+
+            <div class="acciones">
+                <button class="btn-accion" id="btnEscanear">
+                    <i class='bx bx-qr-scan'></i>
+                    Escanear Código
+                </button>
+                <button class="btn-accion redimir" onclick="redimirPuntos(50)">
+                    <i class='bx bx-coin'></i>
+                    Canjear
+                </button>
+            </div>
+
+            <div id="scanner-container" style="display: none;">
+                <video id="preview" width="100%"></video>
+                <button class="btn-accion cancelar" onclick="cerrarCamara()">
+                    <i class='bx bx-x'></i>
+                    Cancelar
+                </button>
+            </div>
+
+            <div class="historial">
+                <h3>Historial de transacciones</h3>
+                <div class="lista-historial" id="historial-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let puntos = 0;
+        let scanner = null;
+        const historial = [];
+
+        // Configurar el escáner
+        document.getElementById('btnEscanear').addEventListener('click', () => {
+            iniciarEscaneo();
+        });
+
+        async function iniciarEscaneo() {
+            try {
+                const scannerContainer = document.getElementById('scanner-container');
+                const preview = document.getElementById('preview');
+                
+                scanner = new Instascan.Scanner({
+                    video: preview,
+                    mirror: false
+                });
+
+                scanner.addListener('scan', function(content) {
+                    const datos = validarCodigo(content);
+                    if(datos) {
+                        agregarPuntos(datos.puntos);
+                        cerrarCamara();
+                    }
+                });
+
+                const cameras = await Instascan.Camera.getCameras();
+                if(cameras.length > 0) {
+                    scannerContainer.style.display = 'block';
+                    await scanner.start(cameras[0]);
+                } else {
+                    alert('No se encontró ninguna cámara');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Error al acceder a la cámara');
+            }
+        }
+
+        function validarCodigo(codigo) {
+            try {
+                const datos = JSON.parse(codigo);
+                if(datos.hash && datos.puntos && validarHash(datos)) {
+                    return datos;
+                }
+                throw new Error('Código inválido');
+            } catch (e) {
+                alert('Código no válido');
+                return null;
+            }
+        }
+
+        function validarHash(datos) {
+            // Implementar lógica de validación con servidor
+            const claveSecreta = 'barberia-secreta';
+            const hashCalculado = btoa(`${datos.puntos}${claveSecreta}`);
+            return hashCalculado === datos.hash;
+        }
+
+        function cerrarCamara() {
+            if(scanner) {
+                scanner.stop();
+                document.getElementById('scanner-container').style.display = 'none';
+            }
+        }
+
+        function agregarPuntos(cantidad) {
+            puntos += cantidad;
+            actualizarPuntos();
+            agregarAlHistorial(`+${cantidad} puntos (Código escaneado)`);
+        }
+
+        // Resto de funciones igual que antes...
+    </script>
+</body>
+</html>
